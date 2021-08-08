@@ -1,0 +1,37 @@
+﻿@using OnlineLibrarySystem.Models
+@model List<TabloKitap>
+@{
+    ViewBag.Title = "ListBooks";
+    Layout = "~/Views/Shared/LoggedUserLayout.cshtml";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Pages</th>
+            <th>Book Category</th>
+            <th>Book Author</th>
+            <th>Book Year</th>
+            <th>Book in Stock</th>
+            <th>Reserve this book</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+        <tr>
+            <td>@book.Ad</td>
+            <td>@book.Sayfa</td>
+            <td>@book.Kategori</td>
+            <td>@book.Yazar</td>
+            <td>@book.Yıl</td>
+            <td>@book.Adet</td>
+            <td><a class="btn btn-danger" href="/Book/ReserveBook/@book.ID">Reserve</a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+

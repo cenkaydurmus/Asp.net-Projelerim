@@ -1,0 +1,33 @@
+﻿@using OnlineLibrarySystem.Models
+@model List<Tabloİade>
+@{
+    ViewBag.Title = "SeeRebateBooksAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>See Rebate Books Admin</h2>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Rebating Book Name</th>
+            <th>Rebating User</th>
+            <th>Rebating Date</th>
+            <th>Approve Rebate</th>
+        </tr>
+    </thead>
+
+
+    <thead>
+        @foreach(var book in Model)
+        {
+        <tr>
+            <td>@book.Ad</td>
+            <td>@book.Kullanıcı</td>
+            <td>@book.Tarih</td>
+            <td><a class="btn btn-danger" href="/Book/ApproveRebateAdmin/@book.ID">Approve Book</a></td>
+        </tr>
+        }
+    </thead>
+</table>
+

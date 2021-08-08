@@ -1,0 +1,9 @@
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\bin\Debug\EntityLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

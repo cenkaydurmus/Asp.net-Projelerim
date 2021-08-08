@@ -1,0 +1,25 @@
+﻿@using Stok_Takip_Sitesi.Models;
+@model MUSTERITABLOSU
+@{
+    ViewBag.Title = "MüşteriEkle";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+<form method="post">
+    <link href="~/css/StyleSheet1.css" rel="stylesheet" />
+    <div >
+        <div>
+            <h1 class="headers">Müşteri Ekleme Formu</h1>
+            <label >Müşteri Adı</label>
+            @Html.TextBoxFor(k => k.MUSTERIAD, new { @class = "form-control" })
+            <label>Müşteri Soydaı</label>
+            @Html.TextBoxFor(k => k.MUSTERISOYAD, new { @class = "form-control" })
+        </div>
+        <div>
+            <input style="margin-left:45rem ; margin-top:10px; width:180px; " type="submit" class="btn-danger" value="Müşteri Ekle" />
+        </div>
+    </div>
+    
+
+</form>
+

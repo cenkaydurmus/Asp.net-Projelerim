@@ -1,0 +1,20 @@
+﻿@using Stok_Takip_Sitesi.Models;
+@model KATEGORITABLOSU
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+  
+    <form method="post">
+        <link href="~/css/StyleSheet1.css" rel="stylesheet" />
+        <div >
+            <h1 class="headers">Kategori Ekleme Formu</h1>
+            @Html.TextBoxFor(k => k.KATEGORIAD, new { @class = "txtboxes" });
+        </div>
+        <div>
+            <input  style="margin-left:45rem ; margin-top:10px; width:180px; " type="submit" class="btn-danger" value="Kategori Ekle" />
+        </div>
+
+    </form>
+

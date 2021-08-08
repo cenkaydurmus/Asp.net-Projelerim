@@ -1,0 +1,28 @@
+﻿@using Stok_Takip_Sitesi.Models;
+@model Stok_Takip_Sitesi.Models.URUNTABLOSU
+@{
+    ViewBag.Title = "ÜrünEkle";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+    <form method="post">
+        <div>
+            <div>
+
+                <h1 class="headers">Ürün Ekleme Formu</h1>
+                <label>Ürün Adı</label>
+                @Html.TextBoxFor(k => k.URUNAD, new { @class = "form-control" })
+                <label>Ürün Kategori</label>
+                @Html.DropDownListFor(k => k.KATEGORITABLOSU.KATEGORIID, (List<SelectListItem>)ViewBag.urn, new { @class = "form-control" })
+                <label>Ürün Stoğu</label>
+                @Html.TextBoxFor(k => k.URUNSTOK, new { @class = "form-control" })
+                <label>Ürün Fiyatı</label>
+                @Html.TextBoxFor(k => k.URUNFIYAT, new { @class = "form-control" })
+               
+
+            </div>
+            <div>
+                <input style="margin-left:45rem ; margin-top:10px; width:180px; " type="submit" class="btn-danger" value="Ürün Ekle" />
+            </div>
+        </div>
+
+    </form>

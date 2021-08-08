@@ -1,0 +1,16 @@
+﻿.txtboxes {
+    align-items: center;
+    margin-left: 45rem;
+    width: 180px;
+}
+
+.headers {
+    align-items: center;
+    margin-left: 35rem
+}
+
+.buttons {
+    margin-left: 45rem;
+    margin-top: 10px;
+    width: 180px;
+}

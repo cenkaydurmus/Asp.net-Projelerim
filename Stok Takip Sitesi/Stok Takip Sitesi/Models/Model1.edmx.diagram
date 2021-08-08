@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34f238ff397c42b6a6fccfca9f118a1e" Name="Diagram1">
+        <EntityTypeShape EntityType="StokTakipVeritabanıModel.KATEGORITABLOSU" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipVeritabanıModel.MUSTERITABLOSU" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipVeritabanıModel.SATISTABLOSU" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipVeritabanıModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StokTakipVeritabanıModel.URUNTABLOSU" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="StokTakipVeritabanıModel.FK_URUNTABLOSU_KATEGORITABLOSU" ManuallyRouted="false" />
+        <AssociationConnector Association="StokTakipVeritabanıModel.FK_SATISTABLOSU_MUSTERITABLOSU" ManuallyRouted="false" />
+        <AssociationConnector Association="StokTakipVeritabanıModel.FK_SATISTABLOSU_URUNTABLOSU" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

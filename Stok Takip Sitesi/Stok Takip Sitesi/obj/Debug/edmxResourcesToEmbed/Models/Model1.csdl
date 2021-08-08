@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StokTakipVeritabanıModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="KATEGORITABLOSU">
+    <Key>
+      <PropertyRef Name="KATEGORIID" />
+    </Key>
+    <Property Name="KATEGORIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KATEGORIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="URUNTABLOSU" Relationship="Self.FK_URUNTABLOSU_KATEGORITABLOSU" FromRole="KATEGORITABLOSU" ToRole="URUNTABLOSU" />
+  </EntityType>
+  <EntityType Name="MUSTERITABLOSU">
+    <Key>
+      <PropertyRef Name="MUSTERIID" />
+    </Key>
+    <Property Name="MUSTERIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MUSTERIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MUSTERISOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SATISTABLOSU" Relationship="Self.FK_SATISTABLOSU_MUSTERITABLOSU" FromRole="MUSTERITABLOSU" ToRole="SATISTABLOSU" />
+  </EntityType>
+  <EntityType Name="SATISTABLOSU">
+    <Key>
+      <PropertyRef Name="SATISID" />
+    </Key>
+    <Property Name="SATISID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URUNID" Type="Int32" />
+    <Property Name="MUSTERIID" Type="Int32" />
+    <Property Name="SATISADET" Type="Int32" />
+    <Property Name="SATISFIYAT" Type="Int32" />
+    <NavigationProperty Name="MUSTERITABLOSU" Relationship="Self.FK_SATISTABLOSU_MUSTERITABLOSU" FromRole="SATISTABLOSU" ToRole="MUSTERITABLOSU" />
+    <NavigationProperty Name="URUNTABLOSU" Relationship="Self.FK_SATISTABLOSU_URUNTABLOSU" FromRole="SATISTABLOSU" ToRole="URUNTABLOSU" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="URUNTABLOSU">
+    <Key>
+      <PropertyRef Name="URUNID" />
+    </Key>
+    <Property Name="URUNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URUNAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KATEGORIID" Type="Int32" />
+    <Property Name="URUNFIYAT" Type="Int32" />
+    <Property Name="URUNSTOK" Type="Int32" />
+    <NavigationProperty Name="KATEGORITABLOSU" Relationship="Self.FK_URUNTABLOSU_KATEGORITABLOSU" FromRole="URUNTABLOSU" ToRole="KATEGORITABLOSU" />
+    <NavigationProperty Name="SATISTABLOSU" Relationship="Self.FK_SATISTABLOSU_URUNTABLOSU" FromRole="URUNTABLOSU" ToRole="SATISTABLOSU" />
+  </EntityType>
+  <Association Name="FK_URUNTABLOSU_KATEGORITABLOSU">
+    <End Role="KATEGORITABLOSU" Type="Self.KATEGORITABLOSU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KATEGORITABLOSU">
+        <PropertyRef Name="KATEGORIID" />
+      </Principal>
+      <Dependent Role="URUNTABLOSU">
+        <PropertyRef Name="KATEGORIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SATISTABLOSU_MUSTERITABLOSU">
+    <End Role="MUSTERITABLOSU" Type="Self.MUSTERITABLOSU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUSTERITABLOSU">
+        <PropertyRef Name="MUSTERIID" />
+      </Principal>
+      <Dependent Role="SATISTABLOSU">
+        <PropertyRef Name="MUSTERIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SATISTABLOSU_URUNTABLOSU">
+    <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="URUNTABLOSU">
+        <PropertyRef Name="URUNID" />
+      </Principal>
+      <Dependent Role="SATISTABLOSU">
+        <PropertyRef Name="URUNID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StokTakipVeritabanıEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="KATEGORITABLOSU" EntityType="Self.KATEGORITABLOSU" />
+    <EntitySet Name="MUSTERITABLOSU" EntityType="Self.MUSTERITABLOSU" />
+    <EntitySet Name="SATISTABLOSU" EntityType="Self.SATISTABLOSU" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="URUNTABLOSU" EntityType="Self.URUNTABLOSU" />
+    <AssociationSet Name="FK_URUNTABLOSU_KATEGORITABLOSU" Association="Self.FK_URUNTABLOSU_KATEGORITABLOSU">
+      <End Role="KATEGORITABLOSU" EntitySet="KATEGORITABLOSU" />
+      <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SATISTABLOSU_MUSTERITABLOSU" Association="Self.FK_SATISTABLOSU_MUSTERITABLOSU">
+      <End Role="MUSTERITABLOSU" EntitySet="MUSTERITABLOSU" />
+      <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SATISTABLOSU_URUNTABLOSU" Association="Self.FK_SATISTABLOSU_URUNTABLOSU">
+      <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+      <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

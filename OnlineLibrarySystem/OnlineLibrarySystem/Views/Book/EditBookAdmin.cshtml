@@ -1,0 +1,30 @@
+﻿@using OnlineLibrarySystem.Models
+@model TabloKitap
+@{
+    ViewBag.Title = "EditBookAdmin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Edit Book Admin</h2>
+
+@using (Html.BeginForm("EditBookAdmin", "Book", FormMethod.Post))
+{
+    <div style="display:flex;flex-direction:column">
+
+        @Html.TextBoxFor(m => m.Ad, new { placeholder = "Enter the name of book" })
+        @Html.ValidationMessageFor(m => m.Ad)
+        @Html.TextBoxFor(m => m.Sayfa, new { placeholder = "Enter the page number of book" })
+        @Html.ValidationMessageFor(m => m.Sayfa)
+        @Html.TextBoxFor(m => m.Kategori, new { placeholder = "Enter the category of book" })
+        @Html.ValidationMessageFor(m => m.Kategori)
+        @Html.TextBoxFor(m => m.Yazar, new { placeholder = "Enter the author of book" })
+        @Html.ValidationMessageFor(m => m.Yazar)
+        @Html.TextBoxFor(m => m.Yıl, new { placeholder = "Enter the year of book" })
+        @Html.ValidationMessageFor(m => m.Yıl)
+        @Html.TextBoxFor(m => m.Adet, new { placeholder = "Enter the stock of book" })
+        @Html.ValidationMessageFor(m => m.Adet)
+        <input type="submit" value="Edit" class="btn btn-danger" />
+    </div>
+
+}
+

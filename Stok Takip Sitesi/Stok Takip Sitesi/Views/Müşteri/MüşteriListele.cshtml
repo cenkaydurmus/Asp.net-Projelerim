@@ -1,0 +1,35 @@
+﻿@using Stok_Takip_Sitesi.Models;
+@model List<MUSTERITABLOSU>
+@{
+    ViewBag.Title = "MüşteriListele";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Müşteri ID</th>
+            <th>Müşteri Ad</th>
+            <th>Müşteri Soyad</th>
+            <th>Müşteri Sil</th>
+            <th>Müşteri Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var mstr in Model)
+        {
+            <tr>
+                <td>@mstr.MUSTERIID</td>
+                <td>@mstr.MUSTERIAD</td>
+                <td>@mstr.MUSTERISOYAD</td>
+                <td><a href="/Müşteri/MüşteriSil/@mstr.MUSTERIID" class="btn btn-warning">Sil</a></td>
+                <td><a href="/Müşteri/GüncelleAç/@mstr.MUSTERIID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a href="/Müşteri/MüşteriEkle" class="btn btn-danger">Müşteri ekleme sayfasına gitmek için tıklayınız</a>
+

@@ -1,0 +1,22 @@
+﻿@model Stok_Takip_Sitesi.Models.KATEGORITABLOSU
+@{
+    ViewBag.Title = "KategoriGüncelleAç";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriGüncelle", "Kategori", FormMethod.Post))
+{
+    <div>
+        Kategori ID
+        @Html.TextBoxFor(m => m.KATEGORIID, new { @class = "form-control" })
+    </div>
+    <div>
+        Kategori AD
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-danger">Güncelle</button>
+    </div>
+}
+
+

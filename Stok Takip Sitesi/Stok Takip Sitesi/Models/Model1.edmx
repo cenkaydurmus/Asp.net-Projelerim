@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StokTakipVeritabanıModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KATEGORITABLOSU">
+          <Key>
+            <PropertyRef Name="KATEGORIID" />
+          </Key>
+          <Property Name="KATEGORIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORIAD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MUSTERITABLOSU">
+          <Key>
+            <PropertyRef Name="MUSTERIID" />
+          </Key>
+          <Property Name="MUSTERIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MUSTERIAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="MUSTERISOYAD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SATISTABLOSU">
+          <Key>
+            <PropertyRef Name="SATISID" />
+          </Key>
+          <Property Name="SATISID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URUNID" Type="int" />
+          <Property Name="MUSTERIID" Type="int" />
+          <Property Name="SATISADET" Type="int" />
+          <Property Name="SATISFIYAT" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="URUNTABLOSU">
+          <Key>
+            <PropertyRef Name="URUNID" />
+          </Key>
+          <Property Name="URUNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URUNAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="KATEGORIID" Type="int" />
+          <Property Name="URUNFIYAT" Type="int" />
+          <Property Name="URUNSTOK" Type="int" />
+        </EntityType>
+        <Association Name="FK_SATISTABLOSU_MUSTERITABLOSU">
+          <End Role="MUSTERITABLOSU" Type="Self.MUSTERITABLOSU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUSTERITABLOSU">
+              <PropertyRef Name="MUSTERIID" />
+            </Principal>
+            <Dependent Role="SATISTABLOSU">
+              <PropertyRef Name="MUSTERIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SATISTABLOSU_URUNTABLOSU">
+          <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="URUNTABLOSU">
+              <PropertyRef Name="URUNID" />
+            </Principal>
+            <Dependent Role="SATISTABLOSU">
+              <PropertyRef Name="URUNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_URUNTABLOSU_KATEGORITABLOSU">
+          <End Role="KATEGORITABLOSU" Type="Self.KATEGORITABLOSU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORITABLOSU">
+              <PropertyRef Name="KATEGORIID" />
+            </Principal>
+            <Dependent Role="URUNTABLOSU">
+              <PropertyRef Name="KATEGORIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StokTakipVeritabanıModelStoreContainer">
+          <EntitySet Name="KATEGORITABLOSU" EntityType="Self.KATEGORITABLOSU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUSTERITABLOSU" EntityType="Self.MUSTERITABLOSU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SATISTABLOSU" EntityType="Self.SATISTABLOSU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="URUNTABLOSU" EntityType="Self.URUNTABLOSU" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SATISTABLOSU_MUSTERITABLOSU" Association="Self.FK_SATISTABLOSU_MUSTERITABLOSU">
+            <End Role="MUSTERITABLOSU" EntitySet="MUSTERITABLOSU" />
+            <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SATISTABLOSU_URUNTABLOSU" Association="Self.FK_SATISTABLOSU_URUNTABLOSU">
+            <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+            <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_URUNTABLOSU_KATEGORITABLOSU" Association="Self.FK_URUNTABLOSU_KATEGORITABLOSU">
+            <End Role="KATEGORITABLOSU" EntitySet="KATEGORITABLOSU" />
+            <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StokTakipVeritabanıModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KATEGORITABLOSU">
+          <Key>
+            <PropertyRef Name="KATEGORIID" />
+          </Key>
+          <Property Name="KATEGORIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="URUNTABLOSU" Relationship="Self.FK_URUNTABLOSU_KATEGORITABLOSU" FromRole="KATEGORITABLOSU" ToRole="URUNTABLOSU" />
+        </EntityType>
+        <EntityType Name="MUSTERITABLOSU">
+          <Key>
+            <PropertyRef Name="MUSTERIID" />
+          </Key>
+          <Property Name="MUSTERIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MUSTERIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MUSTERISOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SATISTABLOSU" Relationship="Self.FK_SATISTABLOSU_MUSTERITABLOSU" FromRole="MUSTERITABLOSU" ToRole="SATISTABLOSU" />
+        </EntityType>
+        <EntityType Name="SATISTABLOSU">
+          <Key>
+            <PropertyRef Name="SATISID" />
+          </Key>
+          <Property Name="SATISID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URUNID" Type="Int32" />
+          <Property Name="MUSTERIID" Type="Int32" />
+          <Property Name="SATISADET" Type="Int32" />
+          <Property Name="SATISFIYAT" Type="Int32" />
+          <NavigationProperty Name="MUSTERITABLOSU" Relationship="Self.FK_SATISTABLOSU_MUSTERITABLOSU" FromRole="SATISTABLOSU" ToRole="MUSTERITABLOSU" />
+          <NavigationProperty Name="URUNTABLOSU" Relationship="Self.FK_SATISTABLOSU_URUNTABLOSU" FromRole="SATISTABLOSU" ToRole="URUNTABLOSU" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="URUNTABLOSU">
+          <Key>
+            <PropertyRef Name="URUNID" />
+          </Key>
+          <Property Name="URUNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URUNAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KATEGORIID" Type="Int32" />
+          <Property Name="URUNFIYAT" Type="Int32" />
+          <Property Name="URUNSTOK" Type="Int32" />
+          <NavigationProperty Name="KATEGORITABLOSU" Relationship="Self.FK_URUNTABLOSU_KATEGORITABLOSU" FromRole="URUNTABLOSU" ToRole="KATEGORITABLOSU" />
+          <NavigationProperty Name="SATISTABLOSU" Relationship="Self.FK_SATISTABLOSU_URUNTABLOSU" FromRole="URUNTABLOSU" ToRole="SATISTABLOSU" />
+        </EntityType>
+        <Association Name="FK_URUNTABLOSU_KATEGORITABLOSU">
+          <End Role="KATEGORITABLOSU" Type="Self.KATEGORITABLOSU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORITABLOSU">
+              <PropertyRef Name="KATEGORIID" />
+            </Principal>
+            <Dependent Role="URUNTABLOSU">
+              <PropertyRef Name="KATEGORIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SATISTABLOSU_MUSTERITABLOSU">
+          <End Role="MUSTERITABLOSU" Type="Self.MUSTERITABLOSU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUSTERITABLOSU">
+              <PropertyRef Name="MUSTERIID" />
+            </Principal>
+            <Dependent Role="SATISTABLOSU">
+              <PropertyRef Name="MUSTERIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SATISTABLOSU_URUNTABLOSU">
+          <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="URUNTABLOSU">
+              <PropertyRef Name="URUNID" />
+            </Principal>
+            <Dependent Role="SATISTABLOSU">
+              <PropertyRef Name="URUNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StokTakipVeritabanıEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KATEGORITABLOSU" EntityType="Self.KATEGORITABLOSU" />
+          <EntitySet Name="MUSTERITABLOSU" EntityType="Self.MUSTERITABLOSU" />
+          <EntitySet Name="SATISTABLOSU" EntityType="Self.SATISTABLOSU" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="URUNTABLOSU" EntityType="Self.URUNTABLOSU" />
+          <AssociationSet Name="FK_URUNTABLOSU_KATEGORITABLOSU" Association="Self.FK_URUNTABLOSU_KATEGORITABLOSU">
+            <End Role="KATEGORITABLOSU" EntitySet="KATEGORITABLOSU" />
+            <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SATISTABLOSU_MUSTERITABLOSU" Association="Self.FK_SATISTABLOSU_MUSTERITABLOSU">
+            <End Role="MUSTERITABLOSU" EntitySet="MUSTERITABLOSU" />
+            <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SATISTABLOSU_URUNTABLOSU" Association="Self.FK_SATISTABLOSU_URUNTABLOSU">
+            <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+            <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StokTakipVeritabanıModelStoreContainer" CdmEntityContainer="StokTakipVeritabanıEntities">
+          <EntitySetMapping Name="KATEGORITABLOSU">
+            <EntityTypeMapping TypeName="StokTakipVeritabanıModel.KATEGORITABLOSU">
+              <MappingFragment StoreEntitySet="KATEGORITABLOSU">
+                <ScalarProperty Name="KATEGORIID" ColumnName="KATEGORIID" />
+                <ScalarProperty Name="KATEGORIAD" ColumnName="KATEGORIAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUSTERITABLOSU">
+            <EntityTypeMapping TypeName="StokTakipVeritabanıModel.MUSTERITABLOSU">
+              <MappingFragment StoreEntitySet="MUSTERITABLOSU">
+                <ScalarProperty Name="MUSTERIID" ColumnName="MUSTERIID" />
+                <ScalarProperty Name="MUSTERIAD" ColumnName="MUSTERIAD" />
+                <ScalarProperty Name="MUSTERISOYAD" ColumnName="MUSTERISOYAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SATISTABLOSU">
+            <EntityTypeMapping TypeName="StokTakipVeritabanıModel.SATISTABLOSU">
+              <MappingFragment StoreEntitySet="SATISTABLOSU">
+                <ScalarProperty Name="SATISID" ColumnName="SATISID" />
+                <ScalarProperty Name="URUNID" ColumnName="URUNID" />
+                <ScalarProperty Name="MUSTERIID" ColumnName="MUSTERIID" />
+                <ScalarProperty Name="SATISADET" ColumnName="SATISADET" />
+                <ScalarProperty Name="SATISFIYAT" ColumnName="SATISFIYAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StokTakipVeritabanıModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="URUNTABLOSU">
+            <EntityTypeMapping TypeName="StokTakipVeritabanıModel.URUNTABLOSU">
+              <MappingFragment StoreEntitySet="URUNTABLOSU">
+                <ScalarProperty Name="URUNID" ColumnName="URUNID" />
+                <ScalarProperty Name="URUNAD" ColumnName="URUNAD" />
+                <ScalarProperty Name="KATEGORIID" ColumnName="KATEGORIID" />
+                <ScalarProperty Name="URUNFIYAT" ColumnName="URUNFIYAT" />
+                <ScalarProperty Name="URUNSTOK" ColumnName="URUNSTOK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

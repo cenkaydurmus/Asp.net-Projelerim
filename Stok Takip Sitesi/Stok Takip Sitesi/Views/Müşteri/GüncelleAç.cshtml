@@ -1,0 +1,25 @@
+﻿@model Stok_Takip_Sitesi.Models.MUSTERITABLOSU
+@{
+    ViewBag.Title = "GüncelleAç";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("MüşteriGüncelle", "Müşteri", FormMethod.Post))
+{
+    <div>
+        Müşteri ID
+        @Html.TextBoxFor(m => m.MUSTERIID, new { @class = "form-control" })
+    </div>
+    <div>
+        Müşteri Ad
+        @Html.TextBoxFor(k => k.MUSTERIAD, new { @class = "form-control" })
+    </div>
+    <div>
+        Müşteri Soyad
+        @Html.TextBoxFor(k => k.MUSTERISOYAD, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-danger">Güncelle</button>
+    </div>
+}
+

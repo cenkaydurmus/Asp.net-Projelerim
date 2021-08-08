@@ -1,0 +1,11 @@
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\bin\Debug\BusniessLogicLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\bin\Debug\BusniessLogicLayer.pdb
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\bin\Debug\EntityLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\bin\Debug\EntityLayer.pdb
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\obj\Debug\BusniessLogicLayer.csprojAssemblyReference.cache
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\obj\Debug\BusniessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\obj\Debug\BusniessLogicLayer.csproj.CopyComplete
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\obj\Debug\BusniessLogicLayer.dll
+C:\Users\ACER\source\repos\Yaz Okulu\BusniessLogicLayer\obj\Debug\BusniessLogicLayer.pdb

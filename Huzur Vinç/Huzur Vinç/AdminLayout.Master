@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminLayout.master.cs" Inherits="Huzur_Vinç.AdminLayout" %>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="AddCars.aspx">Araba Sat</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="KurumsalDüzenle.aspx">Kurumsal Sayfasını Düzenle</a></li>
+                 <li><a href="GelişmeEkle.aspx">Gelişme ekle</a></li>
+                 <li><a href="AraçEkle.aspx">Araç ekle</a></li>
+                 <li><a href="SlaytlarıDüzenle.aspx">Slaytları düzenle</a></li>
+                 <li><a href="UdDüzenle.aspx">Alt/Üst kısımları düzenle</a></li>
+                 <li><a href="SosyalMedyaDüzenle.aspx">Sosyal medya sayfasını düzenle</a></li>
+                 <li><a href="İletişimDüzenle.aspx">İletişim sayfasını düzenle</a></li>
+                 <li><a href="ArkaPlanDüzenle.aspx">Arka plan düzenle</a></li>
+                <li><a href="MesajlarıGör.aspx">Mesajlar</a></li>
+                
+            </ul>
+          
+        </div>
+    </nav>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div class="container">
+
+        </div>
+    </asp:ContentPlaceHolder>
+
+
+</body>
+</html>

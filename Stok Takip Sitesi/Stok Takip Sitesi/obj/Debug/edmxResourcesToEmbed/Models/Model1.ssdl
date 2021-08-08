@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StokTakipVeritabanıModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="KATEGORITABLOSU">
+    <Key>
+      <PropertyRef Name="KATEGORIID" />
+    </Key>
+    <Property Name="KATEGORIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KATEGORIAD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MUSTERITABLOSU">
+    <Key>
+      <PropertyRef Name="MUSTERIID" />
+    </Key>
+    <Property Name="MUSTERIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MUSTERIAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="MUSTERISOYAD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SATISTABLOSU">
+    <Key>
+      <PropertyRef Name="SATISID" />
+    </Key>
+    <Property Name="SATISID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URUNID" Type="int" />
+    <Property Name="MUSTERIID" Type="int" />
+    <Property Name="SATISADET" Type="int" />
+    <Property Name="SATISFIYAT" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="URUNTABLOSU">
+    <Key>
+      <PropertyRef Name="URUNID" />
+    </Key>
+    <Property Name="URUNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URUNAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="KATEGORIID" Type="int" />
+    <Property Name="URUNFIYAT" Type="int" />
+    <Property Name="URUNSTOK" Type="int" />
+  </EntityType>
+  <Association Name="FK_SATISTABLOSU_MUSTERITABLOSU">
+    <End Role="MUSTERITABLOSU" Type="Self.MUSTERITABLOSU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUSTERITABLOSU">
+        <PropertyRef Name="MUSTERIID" />
+      </Principal>
+      <Dependent Role="SATISTABLOSU">
+        <PropertyRef Name="MUSTERIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SATISTABLOSU_URUNTABLOSU">
+    <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SATISTABLOSU" Type="Self.SATISTABLOSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="URUNTABLOSU">
+        <PropertyRef Name="URUNID" />
+      </Principal>
+      <Dependent Role="SATISTABLOSU">
+        <PropertyRef Name="URUNID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_URUNTABLOSU_KATEGORITABLOSU">
+    <End Role="KATEGORITABLOSU" Type="Self.KATEGORITABLOSU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="URUNTABLOSU" Type="Self.URUNTABLOSU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KATEGORITABLOSU">
+        <PropertyRef Name="KATEGORIID" />
+      </Principal>
+      <Dependent Role="URUNTABLOSU">
+        <PropertyRef Name="KATEGORIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StokTakipVeritabanıModelStoreContainer">
+    <EntitySet Name="KATEGORITABLOSU" EntityType="Self.KATEGORITABLOSU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MUSTERITABLOSU" EntityType="Self.MUSTERITABLOSU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SATISTABLOSU" EntityType="Self.SATISTABLOSU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="URUNTABLOSU" EntityType="Self.URUNTABLOSU" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SATISTABLOSU_MUSTERITABLOSU" Association="Self.FK_SATISTABLOSU_MUSTERITABLOSU">
+      <End Role="MUSTERITABLOSU" EntitySet="MUSTERITABLOSU" />
+      <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SATISTABLOSU_URUNTABLOSU" Association="Self.FK_SATISTABLOSU_URUNTABLOSU">
+      <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+      <End Role="SATISTABLOSU" EntitySet="SATISTABLOSU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_URUNTABLOSU_KATEGORITABLOSU" Association="Self.FK_URUNTABLOSU_KATEGORITABLOSU">
+      <End Role="KATEGORITABLOSU" EntitySet="KATEGORITABLOSU" />
+      <End Role="URUNTABLOSU" EntitySet="URUNTABLOSU" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

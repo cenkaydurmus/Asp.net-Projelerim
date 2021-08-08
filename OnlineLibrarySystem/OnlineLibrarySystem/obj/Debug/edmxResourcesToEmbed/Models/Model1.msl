@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KütüphaneÖdevModelStoreContainer" CdmEntityContainer="KütüphaneÖdevEntities">
+    <EntitySetMapping Name="AlınanTablosu">
+      <EntityTypeMapping TypeName="KütüphaneÖdevModel.AlınanTablosu">
+        <MappingFragment StoreEntitySet="AlınanTablosu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KitapAd" ColumnName="KitapAd" />
+          <ScalarProperty Name="AlanKullanıcı" ColumnName="AlanKullanıcı" />
+          <ScalarProperty Name="AlınmaTarihi" ColumnName="AlınmaTarihi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ayarlar">
+      <EntityTypeMapping TypeName="KütüphaneÖdevModel.Ayarlar">
+        <MappingFragment StoreEntitySet="Ayarlar">
+          <ScalarProperty Name="İadeGünSayısı" ColumnName="İadeGünSayısı" />
+          <ScalarProperty Name="AlınanKitapSayısı" ColumnName="AlınanKitapSayısı" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bildirimler">
+      <EntityTypeMapping TypeName="KütüphaneÖdevModel.Bildirimler">
+        <MappingFragment StoreEntitySet="Bildirimler">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Bildirim" ColumnName="Bildirim" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Kullanıcı" ColumnName="Kullanıcı" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabloİade">
+      <EntityTypeMapping TypeName="KütüphaneÖdevModel.Tabloİade">
+        <MappingFragment StoreEntitySet="Tabloİade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Kullanıcı" ColumnName="Kullanıcı" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloKitap">
+      <EntityTypeMapping TypeName="KütüphaneÖdevModel.TabloKitap">
+        <MappingFragment StoreEntitySet="TabloKitap">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Sayfa" ColumnName="Sayfa" />
+          <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+          <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+          <ScalarProperty Name="Yıl" ColumnName="Yıl" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloKullanıcı">
+      <EntityTypeMapping TypeName="KütüphaneÖdevModel.TabloKullanıcı">
+        <MappingFragment StoreEntitySet="TabloKullanıcı">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KullanıcıAdı" ColumnName="KullanıcıAdı" />
+          <ScalarProperty Name="Şifre" ColumnName="Şifre" />
+          <ScalarProperty Name="Derece" ColumnName="Derece" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

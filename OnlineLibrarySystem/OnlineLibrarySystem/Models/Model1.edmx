@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KütüphaneÖdevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlınanTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KitapAd" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="AlanKullanıcı" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="AlınmaTarihi" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ayarlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="İadeGünSayısı" Type="int" Nullable="false" />
+          <Property Name="AlınanKitapSayısı" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bildirimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bildirim" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="date" />
+          <Property Name="Kullanıcı" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tabloİade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Kullanıcı" Type="nchar" MaxLength="140" Nullable="false" />
+          <Property Name="Tarih" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TabloKitap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Sayfa" Type="int" Nullable="false" />
+          <Property Name="Kategori" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Yazar" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Yıl" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TabloKullanıcı">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullanıcıAdı" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Şifre" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="Derece" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="KütüphaneÖdevModelStoreContainer">
+          <EntitySet Name="AlınanTablosu" EntityType="Self.AlınanTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ayarlar" EntityType="Self.Ayarlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bildirimler" EntityType="Self.Bildirimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tabloİade" EntityType="Self.Tabloİade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TabloKitap" EntityType="Self.TabloKitap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TabloKullanıcı" EntityType="Self.TabloKullanıcı" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KütüphaneÖdevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlınanTablosu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KitapAd" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="AlanKullanıcı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="AlınmaTarihi" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Ayarlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="İadeGünSayısı" Type="Int32" Nullable="false" />
+          <Property Name="AlınanKitapSayısı" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Bildirimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bildirim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="Kullanıcı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tabloİade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Kullanıcı" Type="String" MaxLength="140" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="TabloKitap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Sayfa" Type="Int32" Nullable="false" />
+          <Property Name="Kategori" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Yazar" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yıl" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TabloKullanıcı">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullanıcıAdı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Şifre" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Derece" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="KütüphaneÖdevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlınanTablosu" EntityType="Self.AlınanTablosu" />
+          <EntitySet Name="Ayarlar" EntityType="Self.Ayarlar" />
+          <EntitySet Name="Bildirimler" EntityType="Self.Bildirimler" />
+          <EntitySet Name="Tabloİade" EntityType="Self.Tabloİade" />
+          <EntitySet Name="TabloKitap" EntityType="Self.TabloKitap" />
+          <EntitySet Name="TabloKullanıcı" EntityType="Self.TabloKullanıcı" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KütüphaneÖdevModelStoreContainer" CdmEntityContainer="KütüphaneÖdevEntities">
+          <EntitySetMapping Name="AlınanTablosu">
+            <EntityTypeMapping TypeName="KütüphaneÖdevModel.AlınanTablosu">
+              <MappingFragment StoreEntitySet="AlınanTablosu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KitapAd" ColumnName="KitapAd" />
+                <ScalarProperty Name="AlanKullanıcı" ColumnName="AlanKullanıcı" />
+                <ScalarProperty Name="AlınmaTarihi" ColumnName="AlınmaTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ayarlar">
+            <EntityTypeMapping TypeName="KütüphaneÖdevModel.Ayarlar">
+              <MappingFragment StoreEntitySet="Ayarlar">
+                <ScalarProperty Name="İadeGünSayısı" ColumnName="İadeGünSayısı" />
+                <ScalarProperty Name="AlınanKitapSayısı" ColumnName="AlınanKitapSayısı" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bildirimler">
+            <EntityTypeMapping TypeName="KütüphaneÖdevModel.Bildirimler">
+              <MappingFragment StoreEntitySet="Bildirimler">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bildirim" ColumnName="Bildirim" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Kullanıcı" ColumnName="Kullanıcı" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tabloİade">
+            <EntityTypeMapping TypeName="KütüphaneÖdevModel.Tabloİade">
+              <MappingFragment StoreEntitySet="Tabloİade">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Kullanıcı" ColumnName="Kullanıcı" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TabloKitap">
+            <EntityTypeMapping TypeName="KütüphaneÖdevModel.TabloKitap">
+              <MappingFragment StoreEntitySet="TabloKitap">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Sayfa" ColumnName="Sayfa" />
+                <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+                <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+                <ScalarProperty Name="Yıl" ColumnName="Yıl" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TabloKullanıcı">
+            <EntityTypeMapping TypeName="KütüphaneÖdevModel.TabloKullanıcı">
+              <MappingFragment StoreEntitySet="TabloKullanıcı">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullanıcıAdı" ColumnName="KullanıcıAdı" />
+                <ScalarProperty Name="Şifre" ColumnName="Şifre" />
+                <ScalarProperty Name="Derece" ColumnName="Derece" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

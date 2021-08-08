@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statik CV Sitesi", "Statik CV Sitesi\Statik CV Sitesi.csproj", "{BB80A6F7-54C1-4447-B556-4C42BB7E81B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB80A6F7-54C1-4447-B556-4C42BB7E81B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB80A6F7-54C1-4447-B556-4C42BB7E81B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB80A6F7-54C1-4447-B556-4C42BB7E81B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB80A6F7-54C1-4447-B556-4C42BB7E81B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {379D9486-C65B-4293-A2AA-D6953DC98501}
+	EndGlobalSection
+EndGlobal

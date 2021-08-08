@@ -1,0 +1,37 @@
+﻿@using Stok_Takip_Sitesi.Models;
+@model List<URUNTABLOSU>
+@{
+    ViewBag.Title = "ÜrünListele";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Ürün ID</th>
+            <th>Ürün Ad</th>
+            <th>Ürün Kategori</th>
+            <th>Ürün Fiyat</th>
+            <th>Ürün Stok</th>
+            <th>Ürün Sil</th>
+            <th>Ürün Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.URUNID</td>
+                <td>@urun.URUNAD</td>
+                <td>@urun.KATEGORITABLOSU.KATEGORIAD</td>
+                <td>@urun.URUNFIYAT</td>
+                <td>@urun.URUNSTOK</td>
+                <td><a href="/Ürünler/ÜrünSil/@urun.URUNID" class="btn btn-warning">Sil</a></td>
+                <td><a href="/Ürünler/ÜrünGüncelle/@urun.URUNID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Ürünler/ÜrünEkle" class="btn btn-danger">Ürün ekleme sayfasına gitmek için tıklayınız</a>

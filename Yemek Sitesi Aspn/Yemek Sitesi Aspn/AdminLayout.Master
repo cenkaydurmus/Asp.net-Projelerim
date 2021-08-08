@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminLayout.master.cs" Inherits="Yemek_Sitesi_Aspn.AdminLayout" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">FoodRecipes</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="/AdminMainPage.aspx">Admin Main Page</a></li>
+         <li><a href="/Recipes.aspx">Edit Recipes</a></li>
+         <li><a href="/AcceptRecipes.aspx">Accept Recipes</a></li>
+      <li><a href="/AddTodaysDinner.aspx">Add Todays Dinner</a></li>
+      <li><a href="/EditAboutUs.aspx">Edit About Us</a></li>
+      <li><a href="/Contact.aspx">Show Messages</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+    </asp:ContentPlaceHolder>
+</div>
+
+</body>
+</html>

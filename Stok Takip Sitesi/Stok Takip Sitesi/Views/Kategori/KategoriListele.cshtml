@@ -1,0 +1,35 @@
+﻿@using Stok_Takip_Sitesi.Models;
+@model List<KATEGORITABLOSU> 
+@{
+    ViewBag.Title = "KategoriListele";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Kategori ID</th>
+            <th>Kategori AD</th>
+            <th>Kategori Sil</th>
+            <th>Kategori Güncelle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.KATEGORIID</td>
+                <td>@ktgr.KATEGORIAD</td>
+                <td><a href="/Kategori/KategoriSil/@ktgr.KATEGORIID" class="btn btn-warning">Sil</a></td>
+                <td><a href="/Kategori/KategoriGüncelleAç/@ktgr.KATEGORIID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+    
+
+</table>
+
+<a href="/Kategori/KategoriEkle" class="btn btn-danger">Kategori ekleme sayfasına gitmek için tıklayınız</a>
+

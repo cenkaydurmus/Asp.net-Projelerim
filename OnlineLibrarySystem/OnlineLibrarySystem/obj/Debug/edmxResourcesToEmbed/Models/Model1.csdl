@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KütüphaneÖdevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AlınanTablosu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KitapAd" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="AlanKullanıcı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="AlınmaTarihi" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Ayarlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="İadeGünSayısı" Type="Int32" Nullable="false" />
+    <Property Name="AlınanKitapSayısı" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Bildirimler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bildirim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Kullanıcı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tabloİade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Kullanıcı" Type="String" MaxLength="140" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="TabloKitap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Sayfa" Type="Int32" Nullable="false" />
+    <Property Name="Kategori" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Yazar" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Yıl" Type="Int32" Nullable="false" />
+    <Property Name="Adet" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TabloKullanıcı">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullanıcıAdı" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Şifre" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Derece" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="KütüphaneÖdevEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AlınanTablosu" EntityType="Self.AlınanTablosu" />
+    <EntitySet Name="Ayarlar" EntityType="Self.Ayarlar" />
+    <EntitySet Name="Bildirimler" EntityType="Self.Bildirimler" />
+    <EntitySet Name="Tabloİade" EntityType="Self.Tabloİade" />
+    <EntitySet Name="TabloKitap" EntityType="Self.TabloKitap" />
+    <EntitySet Name="TabloKullanıcı" EntityType="Self.TabloKullanıcı" />
+  </EntityContainer>
+</Schema>

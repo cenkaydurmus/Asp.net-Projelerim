@@ -1,0 +1,27 @@
+﻿@using OnlineLibrarySystem.Models
+@model TabloKullanıcı
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+
+<div style="display:flex;flex-direction:column;
+justify-content:center;align-items:center;">
+    <h1>Sign Up</h1>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @using (Html.BeginForm("SignUp", "User", FormMethod.Post, new { @style = "display:flex;flex-direction:column;justify-content:space-around;height:300px" }))
+    {
+
+        @Html.TextBoxFor(m => m.KullanıcıAdı)
+        @Html.ValidationMessageFor(m => m.KullanıcıAdı)
+        @Html.PasswordFor(m => m.Şifre)
+        @Html.ValidationMessageFor(m => m.Şifre)
+        <input type="submit" value="Kayıt ol" class="btn btn-danger" />
+    }
+
+</div>
+
+

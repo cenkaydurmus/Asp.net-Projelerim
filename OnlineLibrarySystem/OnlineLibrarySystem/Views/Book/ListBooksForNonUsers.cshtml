@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "ListBooksForNonUsers";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Pages</th>
+            <th>Book Category</th>
+            <th>Book Author</th>
+            <th>Book Year</th>
+            <th>Book in Stock</th>
+            <th>Reserve this book</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Ad</td>
+                <td>@book.Sayfa</td>
+                <td>@book.Kategori</td>
+                <td>@book.Yazar</td>
+                <td>@book.Yıl</td>
+                <td>@book.Adet</td>
+                <td><a class="btn btn-danger" href="/User/SignIn">Click  Sign In/Sign Up to reserve this book</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+

@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Asp.net_Araba_satış_sitesi.Layout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link rel="stylesheet" href="css/mainstyle.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    </asp:ContentPlaceHolder>
+       <link rel="stylesheet" href="css/mainstyle.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="navbar" >
+       <a href="AnaSayfa.aspx">Ana Sayfa</a>
+        <a href="Satış.aspx">Satış</a>
+        <a href="Alış.aspx">Alış</a>
+        <a href="HakkımızdaVeİletişim.aspx">Hakkımızda ve İletişim</a>
+   </div>
+    <asp:ContentPlaceHolder ID="content" runat="server">
+
+    </asp:ContentPlaceHolder>
+</body>
+</html>

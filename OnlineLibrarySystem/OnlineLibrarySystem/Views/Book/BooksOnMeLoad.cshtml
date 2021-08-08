@@ -1,0 +1,33 @@
+﻿@using OnlineLibrarySystem.Models
+@model List<AlınanTablosu> 
+@{
+    ViewBag.Title = "BooksOnMeLoad";
+    Layout = "~/Views/Shared/LoggedUserLayout.cshtml";
+}
+
+<h2>BooksOnMe</h2>
+
+
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Book Owner</th>
+            <th>Book's Get Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.KitapAd</td>
+                <td>@book.AlanKullanıcı</td>
+                <td>@book.AlınmaTarihi</td>
+                <td><a class="btn btn-danger" href="/Book/RebateBook/@book.ID">Rebate the book</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
